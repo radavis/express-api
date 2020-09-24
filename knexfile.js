@@ -1,7 +1,7 @@
 const defaults = {
   client: 'pg',
   migrations: { // http://knexjs.org/#Migrations-API
-    directory: './db/migrations',
+    directory: './src/db/migrations',
     extension: 'js',
     tableName: 'knex_migrations'
   },
@@ -10,7 +10,7 @@ const defaults = {
     max: 10
   },
   seeds: { // http://knexjs.org/#Seeds-API
-    directory: './db/seeds',
+    directory: './src/db/seeds',
     loadExtensions: ['.js']
   }
 }

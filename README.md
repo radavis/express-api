@@ -95,6 +95,8 @@ update `package.json` with `scripts: { "test": "jest" }`
 
 run: `npm run test -- --init` to generate a large `jest.config.js` file with many comments
 
+run: `createdb {{projectName}}_test && NODE_ENV=test npm run knex migrate:latest`
+
 run: `npm run test`
 
 
@@ -111,3 +113,27 @@ By setting `"start": "NODE_PATH=. node start.js"` in `package.json` scripts,
 you can require packages by name, without using relative paths. Unfortunately,
 this breaks down when attemtping to load the `index.js` file in the project
 root.
+
+
+## console
+
+```bash
+$ node
+> const db = require('./src/db')
+> db('books').select().then(books => console.log(books));
+> .exit
+```
+
+
+## resources
+
+* [REST API Tutorial: Using HTTP Methods for RESTful Services](https://restapitutorial.com/lessons/httpmethods.html)
+
+
+## todo
+
+* [ ] add json-schema descriptions for resources
+* [ ] validate requests using json-schema
+* [ ] serve open-api specification
+* [ ] authentication via GitHub/Google/Some OAuth Service
+* [ ] authorization layer

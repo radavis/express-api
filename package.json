@@ -1,14 +1,14 @@
 {
   "name": "express-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "./index.js",
+  "description": "express/knex/pg api with tests",
+  "main": "src/index.js",
   "scripts": {
     "knex": "knex",
-    "start": "node start.js",
-    "test": "jest"
+    "start": "node index.js",
+    "test": "jest --detectOpenHandles --runInBand --forceExit"
   },
-  "keywords": [],
+  "keywords": ["node", "express", "knex", "postgres", "jest", "supertest"],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -24,11 +24,12 @@
     "supertest": "^4.0.2"
   },
   "_moduleAliases": {
-    "~": "."
+    "@src": "./src"
   },
   "jest": {
     "moduleNameMapper": {
-      "~/(.*)": "./$1"
-    }
+      "@src(.*)$": "<rootDir>/src/$1"
+    },
+    "testEnvironment": "node"
   }
 }
