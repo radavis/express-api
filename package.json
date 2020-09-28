@@ -2,13 +2,20 @@
   "name": "express-api",
   "version": "1.0.0",
   "description": "express/knex/pg api with tests",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "knex": "knex",
-    "start": "node index.js",
+    "start": "nodemon",
     "test": "jest --detectOpenHandles --runInBand --forceExit"
   },
-  "keywords": ["node", "express", "knex", "postgres", "jest", "supertest"],
+  "keywords": [
+    "node",
+    "express",
+    "knex",
+    "postgres",
+    "jest",
+    "supertest"
+  ],
   "author": "Richard Davis <rdavis.bacs@gmail.com>",
   "license": "ISC",
   "dependencies": {
@@ -17,6 +24,7 @@
     "knex": "^0.21.5",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
     "pg": "^8.3.3"
   },
   "devDependencies": {
