@@ -9,7 +9,7 @@
     "test": "jest --detectOpenHandles --runInBand --forceExit"
   },
   "keywords": ["node", "express", "knex", "postgres", "jest", "supertest"],
-  "author": "",
+  "author": "Richard Davis <rdavis.bacs@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",

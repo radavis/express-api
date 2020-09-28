@@ -115,12 +115,14 @@ this breaks down when attemtping to load the `index.js` file in the project
 root.
 
 
-## console
+## knex console
 
 ```bash
 $ node
 > const db = require('./src/db')
-> db('books').select().then(books => console.log(books));
+> db('books').select().then(books => console.log(books))
+> const books = require('./src/db/seeds/add-books')
+> books.seed()
 > .exit
 ```
 
@@ -134,6 +136,7 @@ $ node
 
 * [ ] add json-schema descriptions for resources
 * [ ] validate requests using json-schema
+* [ ] generate code. input: model name and attributes, output: migration, resource and test
 * [ ] serve open-api specification
 * [ ] authentication via GitHub/Google/Some OAuth Service
 * [ ] authorization layer

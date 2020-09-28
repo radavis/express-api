@@ -1,4 +1,5 @@
 const api = require('@src');
+const db = require('@src/db');
 const request = require('supertest');
 
 const ninteenEightyFour = {
@@ -16,10 +17,21 @@ const artOfTheDeal = {
 };
 
 describe('books resource', () => {
+
+  beforeEach(async () => {
+    await db.migrate.latest()
+      .then(() => db.seed.run());
+  });
+
+  afterEach(async () => {
+    await db.migrate.rollback({ directory: ['./src/db/migrations'] }, true);
+  });
+
   describe('GET /books', () => {
     it('returns status 200', async done => {
       const response = await request(api).get('/books');
       expect(response.status).toBe(200);
+      expect(response.body.length > 0).toBe(true);
       done();
     });
   });

@@ -1,17 +1,16 @@
 const defaults = {
   client: 'pg',
-  migrations: { // http://knexjs.org/#Migrations-API
+  log: {
+    warn(message) { // https://github.com/knex/knex/issues/3921
+      if (message.match(/^FS-related option specified/)) return;
+      console.log(message);
+    }
+  },
+  migrations: {
     directory: './src/db/migrations',
-    extension: 'js',
-    tableName: 'knex_migrations'
   },
-  pool: {
-    min: 2,
-    max: 10
-  },
-  seeds: { // http://knexjs.org/#Seeds-API
+  seeds: {
     directory: './src/db/seeds',
-    loadExtensions: ['.js']
   }
 }
 
