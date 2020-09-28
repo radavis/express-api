@@ -1,8 +1,8 @@
-require('dotenv').config();
-require('module-alias/register');
+require("dotenv").config();
+require("module-alias/register");
 
-const pkg = require('./package.json');
-const api = require('./src/index.js');
+const pkg = require("./package.json");
+const api = require("./src/index.js");
 
 const { PORT } = process.env;
 
