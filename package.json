@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "knex": "knex",
-    "start": "node ./index.js",
-    "start-dev": "npx --quiet nodemon",
-    "test": "jest --detectOpenHandles --runInBand --forceExit"
+    "start": "NODE_ENV=production node ./index.js",
+    "start-dev": "NODE_ENV=development npx --quiet nodemon",
+    "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --forceExit"
   },
   "keywords": [
     "node",
@@ -21,7 +21,9 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
     "express": "^4.17.1",
+    "helmet": "^4.1.1",
     "knex": "^0.21.5",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
