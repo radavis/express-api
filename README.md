@@ -1,6 +1,6 @@
 # express-api
 
-How to connect an express api to a database, with tests.
+How to create a json api using express and a relational database, with tests.
 
 
 ## stack
