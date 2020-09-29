@@ -15,7 +15,7 @@ A JSON Web API built in express.
 ## run api locally
 
 ```bash
-$ git clone git@github.com:radavis/express-api
+$ git clone git@github.com:radavis/express-api.git
 $ cd express-api
 $ npm install
 $ cp .env.example .env
