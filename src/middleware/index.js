@@ -10,8 +10,8 @@ const { NODE_ENV } = process.env;
 if (!allEnvironments.includes(NODE_ENV)) {
   console.error(`NODE_ENV is set to non-standard value: '${NODE_ENV}'`);
   console.error(`accepted values are: ${allEnvironments}`);
-  console.error(`terminating app...`);
-  process.exit(-1);
+  console.error(`❌ terminating app...`);
+  process.exit(1);
 }
 
 // middleware functions that will be loaded by the express api

@@ -1,0 +1,13 @@
+{
+  "$id": "books.json",
+  "type": "object",
+  "required": ["title", "author"],
+  "properties": {
+    "title": { "type": "string" },
+    "author": { "type": "string" },
+    "year": { "type": "integer" },
+    "paperback": { "type": "boolean" }
+  },
+  "$async": true,
+  "removeAdditional": true
+}
