@@ -1,12 +1,12 @@
 {
   "name": "express-api",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "express/knex/pg api with tests",
   "main": "index.js",
   "scripts": {
     "knex": "knex",
     "lint": "prettier --check .",
-    "lint:write": "prettier --write .",
+    "lint-fix": "prettier --write .",
     "start": "NODE_ENV=production node ./index.js",
     "start-dev": "NODE_ENV=development npx --quiet nodemon",
     "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --forceExit"
@@ -39,10 +39,12 @@
     "supertest": "^4.0.2"
   },
   "_moduleAliases": {
+    "@root": "./",
     "@src": "./src"
   },
   "jest": {
     "moduleNameMapper": {
+      "@root(.*)$": "<rootDir>/$1",
       "@src(.*)$": "<rootDir>/src/$1"
     },
     "testEnvironment": "node"

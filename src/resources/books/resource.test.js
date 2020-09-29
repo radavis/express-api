@@ -1,4 +1,5 @@
 const api = require("@src");
+const config = require("@root/config");
 const db = require("@src/db");
 const request = require("supertest");
 
@@ -15,7 +16,7 @@ describe("books resource", () => {
   });
 
   afterEach(async () => {
-    await db.migrate.rollback({ directory: ["./src/db/migrations"] }, true);
+    await db.migrate.rollback(config.knex.migrations, true);
   });
 
   describe("GET /books", () => {

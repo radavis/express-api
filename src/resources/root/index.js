@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const pkg = require("@src/../package.json");
+const { description, name, version } = require("@root/config");
 
 router.get("/", async (request, response) => {
   response.json({
-    name: pkg.name,
-    version: pkg.version,
-    description: pkg.description,
+    name,
+    version,
+    description,
   });
 });
 

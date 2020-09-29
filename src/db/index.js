@@ -1,4 +1,4 @@
-const config = require("../../knexfile")[process.env.NODE_ENV || "development"];
-const db = require("knex")(config);
+const config = require("@root/config");
+const db = require("knex")(config.knex);
 
 module.exports = db;

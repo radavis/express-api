@@ -108,14 +108,14 @@ $ node
 
 ## todo
 
-- [ ] add json-schema descriptions for resources
-- [ ] validate requests using json-schema
+- [x] add json-schema descriptions for resources
+- [x] validate requests using json-schema
 - [ ] generate code. input: model name and attributes, output: migration, resource and test
 - [ ] serve open-api specification
 - [ ] authentication via GitHub/Google/Some OAuth Service
 - [ ] authorization layer
 - [ ] consider adding middleware to transform request body keys from `camelCase` to `snake_case`, and response body keys from `snake_case` to `camelCase`. [[inspiration](https://github.com/zzswang/express-humps/blob/master/src/index.js)]
-- [ ] consider use `camelCase` naming throughout the stack
+- [ ] consider using `camelCase` naming throughout the stack
 
 ## resources
 

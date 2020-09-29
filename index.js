@@ -1,11 +1,6 @@
-require("dotenv").config();
-require("module-alias/register");
+const { name, port } = require("./config");
+const api = require("@src");
 
-const pkg = require("./package.json");
-const api = require("./src/index.js");
-
-const { PORT } = process.env;
-
-api.listen(PORT, () => {
-  console.info(`🌎 application '${pkg.name}' listening on port '${PORT}'`);
+api.listen(port, () => {
+  console.info(`🌎 application '${name}' listening on port '${port}'`);
 });

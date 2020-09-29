@@ -1,6 +1,6 @@
 # express-api
 
-A json api built with express and a relational database, tests included.
+A JSON Web API built in express.
 
 ## stack
 
@@ -17,6 +17,7 @@ A json api built with express and a relational database, tests included.
 ```bash
 $ git clone git@github.com:radavis/express-api
 $ cd express-api
+$ npm install
 $ cp .env.example .env
 $ createdb express-api_development
 $ NODE_ENV=development npm run knex migrate:latest
