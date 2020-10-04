@@ -106,6 +106,19 @@ $ node
 > .exit
 ```
 
+## plop
+
+[[documentation](https://plopjs.com/documentation/)]
+
+```bash
+$ npm i --save-dev plop
+$ touch plopfile.js
+```
+
+add `"scripts": { "generate": "plop" }` to `package.json
+
+add `plopfile.js`
+
 ## todo
 
 - [x] add json-schema descriptions for resources
