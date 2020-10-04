@@ -4,6 +4,7 @@
   "description": "express/knex/pg api with tests",
   "main": "index.js",
   "scripts": {
+    "db": "knex",
     "generate": "plop",
     "knex": "knex",
     "lint": "prettier --check .",

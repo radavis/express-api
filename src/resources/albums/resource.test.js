@@ -1,6 +1,6 @@
 const api = require("@src");
 const config = require("@root/config");
-const db = require("@root/db");
+const db = require("@src/db");
 const request = require("supertest");
 
 const ninteenEightyFour = {
@@ -10,7 +10,7 @@ const ninteenEightyFour = {
   paperback: true,
 };
 
-describe("books resource", () => {
+describe("albums resource", () => {
   beforeEach(async () => {
     await db.migrate.latest().then(() => db.seed.run());
   });
@@ -19,26 +19,26 @@ describe("books resource", () => {
     await db.migrate.rollback(config.knex.migrations, true);
   });
 
-  describe("GET /books", () => {
+  describe("GET /albums", () => {
     it("returns status 200", async (done) => {
-      const response = await request(api).get("/books");
+      const response = await request(api).get("/albums");
       expect(response.status).toBe(200);
       expect(response.body.length > 0).toBe(true);
       done();
     });
   });
 
-  describe("POST /books", () => {
+  describe("POST /albums", () => {
     it("returns status 201", async (done) => {
       const response = await request(api)
-        .post("/books")
+        .post("/albums")
         .send(ninteenEightyFour);
       expect(response.status).toBe(201);
       done();
     });
 
     it("returns status 422, when data is invalid", async (done) => {
-      const response = await request(api).post("/books").send({});
+      const response = await request(api).post("/albums").send({});
       expect(response.status).toBe(422);
       expect(response.body.message).toBe("validation failed");
       expect(response.body.errors.length > 0).toBe(true);
@@ -46,14 +46,14 @@ describe("books resource", () => {
     });
   });
 
-  describe("PUT /books/:id", () => {
+  describe("PUT /albums/:id", () => {
     it("returns status 200", async (done) => {
-      const { body } = await request(api).get("/books");
-      const book = body[0];
+      const { body } = await request(api).get("/albums");
+      const album = body[0];
       const response = await request(api)
-        .put(`/books/${book.id}`)
+        .put(`/albums/$album.id}`)
         .send({
-          ...book,
+          ...album,
           author: "anonymous",
         });
       expect(response.status).toBe(200);
@@ -62,7 +62,7 @@ describe("books resource", () => {
 
     it("returns status 404, when id does not exist", async (done) => {
       const response = await request(api)
-        .put(`/books/NaN`)
+        .put(`/albums/NaN`)
         .send({
           ...ninteenEightyFour,
           author: "anonymous",
@@ -72,19 +72,19 @@ describe("books resource", () => {
     });
   });
 
-  describe("DELETE /books/:id", () => {
+  describe("DELETE /albums/:id", () => {
     it("returns status 200", async (done) => {
       const { body } = await request(api)
-        .post("/books")
+        .post("/albums")
         .send(ninteenEightyFour);
 
-      const response = await request(api).delete(`/books/${body.id}`);
+      const response = await request(api).delete(`/albums/${body.id}`);
       expect(response.status).toBe(200);
       done();
     });
 
     it("returns status 404, when id does not exist", async (done) => {
-      const response = await request(api).delete("/books/NaN");
+      const response = await request(api).delete("/albums/NaN");
       expect(response.status).toBe(404);
       done();
     });

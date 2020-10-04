@@ -124,6 +124,11 @@ add `plopfile.js`
 - [x] add json-schema descriptions for resources
 - [x] validate requests using json-schema
 - [ ] generate code. input: model name and attributes, output: migration, resource and test
+  - [x] generate migration
+  - [x] generate routes
+  - [ ] generate schema and validation function
+  - [ ] generate factory
+  - [ ] generate open-api stuff
 - [ ] serve open-api specification
 - [ ] authentication via GitHub/Google/Some OAuth Service
 - [ ] authorization layer

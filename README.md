@@ -1,16 +1,17 @@
 # express-api
 
-A JSON Web API built in express.
+A JSON Web API built in express, with code generation and tests.
 
 ## stack
 
-- node
-- express
-- knex
-- postgres
-- ajv
-- jest
-- supertest
+- [node v12](https://nodejs.org/dist/latest-v12.x/docs/api/)
+- [express v4](https://expressjs.com/en/4x/api.html)
+- [knex v0.21](http://knexjs.org/)
+- [postgres v11](https://www.postgresql.org/docs/11/index.html)
+- [jest v26](https://jestjs.io/docs/en/26.0/expect)
+- [supertest v4](https://www.npmjs.com/package/supertest#example)
+- [plop](https://plopjs.com/documentation/)
+- [ajv](https://ajv.js.org/#getting-started)
 
 ## run api locally
 
@@ -20,8 +21,8 @@ $ cd express-api
 $ npm install
 $ cp .env.example .env
 $ createdb express-api_development
-$ NODE_ENV=development npm run knex migrate:latest
-$ NODE_ENV=development npm run knex seed:run
+$ NODE_ENV=development npm run db migrate:latest
+$ NODE_ENV=development npm run db seed:run
 $ npm run start-dev
 ```
 
@@ -30,4 +31,27 @@ $ npm run start-dev
 ```bash
 $ createdb express-api_test
 $ npm test
+```
+
+## resource generation
+
+### generate a migration
+
+```bash
+$ npm run generate migration albums "artist title notes:text year:integer owner_id:foreign"
+$ # edit the migration, then
+$ npm run db migrate:latest
+```
+
+### generate routes
+
+```bash
+$ npm run generate routes albums # edit the generated files, then
+$ npm run db migrate:latest
+```
+
+### generate json-schema and validation
+
+```bash
+$ npm run generate schema albums "artist title notes:text year:integer owner_id:foreign"
 ```

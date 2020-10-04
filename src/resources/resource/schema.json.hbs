@@ -1,0 +1,10 @@
+{
+  "$id": "{{singularResourceName}}.json",
+  "type": "object",
+  "required": [],
+  "properties": {
+    {{#each columns}}
+    "{{columnName}}": { "type": "{{columnType}}" }
+    {{/each}}
+  }
+}
