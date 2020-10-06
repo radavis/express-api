@@ -126,7 +126,7 @@ add `plopfile.js`
 - [ ] generate code. input: model name and attributes, output: migration, resource and test
   - [x] generate migration
   - [x] generate routes
-  - [ ] generate schema and validation function
+  - [x] generate json-schema and validation function
   - [ ] generate factory
   - [ ] generate open-api stuff
 - [ ] serve open-api specification

@@ -1,4 +1,4 @@
-const { migrationGenerator, routesGenerator, partials } = require("./generate");
+const { generators, partials } = require("./generate");
 
 module.exports = function (plop) {
   // load partials
@@ -7,6 +7,7 @@ module.exports = function (plop) {
   );
 
   // load generators
-  plop.setGenerator("migration", migrationGenerator);
-  plop.setGenerator("routes", routesGenerator);
+  Object.entries(generators).map(([name, generator]) =>
+    plop.setGenerator(name, generator)
+  );
 };

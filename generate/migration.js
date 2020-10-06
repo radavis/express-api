@@ -63,7 +63,7 @@ const migrationGenerator = {
   actions: [
     {
       type: "add",
-      path: `./db/migrations/${timestamp()}_{{table}}.js`,
+      path: `./db/migrations/${timestamp()}_{{tableName}}.js`,
       templateFile: "./db/migrations/migration.js.hbs",
     },
   ],

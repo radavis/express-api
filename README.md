@@ -47,11 +47,11 @@ $ npm run db migrate:latest
 
 ```bash
 $ npm run generate routes albums # edit the generated files, then
-$ npm run db migrate:latest
+$ npm run test
 ```
 
 ### generate json-schema and validation
 
 ```bash
-$ npm run generate schema albums "artist title notes:text year:integer owner_id:foreign"
+$ npm run generate schema albums album "artist title notes year:integer"
 ```

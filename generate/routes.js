@@ -1,3 +1,5 @@
+const { resourcePrompt, singularResourcePrompt } = require("./shared");
+
 /**
  * usage:
  *
@@ -9,18 +11,7 @@
  */
 const routesGenerator = {
   description: "generate express CRUD routes for a resource",
-  prompts: [
-    {
-      type: "input",
-      name: "resourceName",
-      message: "https://hostname/{{resourceName}} (typically plural)",
-    },
-    {
-      type: "input",
-      name: "singularResourceName",
-      message: "singular form",
-    },
-  ],
+  prompts: [resourcePrompt, singularResourcePrompt],
   actions: [
     {
       type: "add",

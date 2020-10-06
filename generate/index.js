@@ -1,9 +1,7 @@
-const migrationGenerator = require("./migration");
-const routesGenerator = require("./routes");
+const generators = require("./generators");
 const partials = require("./partials");
 
 module.exports = {
-  migrationGenerator,
-  routesGenerator,
+  generators,
   partials,
 };
