@@ -1,14 +1,8 @@
 const api = require("@src");
 const config = require("@root/config");
 const db = require("@root/db");
+const { newBook, createBook } = require("./factory");
 const request = require("supertest");
-
-const ninteenEightyFour = {
-  title: "1984",
-  author: "George Orwell",
-  year: 1949,
-  paperback: true,
-};
 
 describe("books resource", () => {
   beforeEach(async () => {
@@ -30,9 +24,8 @@ describe("books resource", () => {
 
   describe("POST /books", () => {
     it("returns status 201", async (done) => {
-      const response = await request(api)
-        .post("/books")
-        .send(ninteenEightyFour);
+      const book = newBook();
+      const response = await request(api).post("/books").send(book);
       expect(response.status).toBe(201);
       done();
     });
@@ -48,8 +41,7 @@ describe("books resource", () => {
 
   describe("PUT /books/:id", () => {
     it("returns status 200", async (done) => {
-      const { body } = await request(api).get("/books");
-      const book = body[0];
+      const book = await createBook();
       const response = await request(api)
         .put(`/books/${book.id}`)
         .send({
@@ -61,12 +53,7 @@ describe("books resource", () => {
     });
 
     it("returns status 404, when id does not exist", async (done) => {
-      const response = await request(api)
-        .put(`/books/NaN`)
-        .send({
-          ...ninteenEightyFour,
-          author: "anonymous",
-        });
+      const response = await request(api).put(`/books/NaN`).send(newBook());
       expect(response.status).toBe(404);
       done();
     });
@@ -74,11 +61,8 @@ describe("books resource", () => {
 
   describe("DELETE /books/:id", () => {
     it("returns status 200", async (done) => {
-      const { body } = await request(api)
-        .post("/books")
-        .send(ninteenEightyFour);
-
-      const response = await request(api).delete(`/books/${body.id}`);
+      const book = await createBook();
+      const response = await request(api).delete(`/books/${book.id}`);
       expect(response.status).toBe(200);
       done();
     });
