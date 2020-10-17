@@ -3,8 +3,8 @@
   "type": "object",
   "required": [],
   "properties": {
-    {{#each columns}}
-    "{{columnName}}": { "type": "{{columnType}}" }
+    {{#each properties}}
+    "{{propertyName}}": { "type": "{{propertyType}}" },
     {{/each}}
   }
 }

@@ -19,3 +19,21 @@ describe("generate factory", () => {
     // fs.unlinkSync(path);
   });
 });
+
+describe("generate schema", () => {
+  it("creates a schema.json file", async (done) => {
+    const { stdout } = await execa("npm", [
+      "run",
+      "generate",
+      "schema",
+      "things",
+      "thing",
+      "artist title notes year:integer",
+    ]);
+    const path = "./src/resources/things"; // use a temporary location, instead
+    const filename = "schema.json";
+    const exists = fs.existsSync(`${path}/${filename}`);
+    expect(exists).toBeTruthy();
+    done();
+  });
+});

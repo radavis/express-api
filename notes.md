@@ -134,6 +134,7 @@ add `plopfile.js`
 - [ ] authorization layer
 - [ ] consider adding middleware to transform request body keys from `camelCase` to `snake_case`, and response body keys from `snake_case` to `camelCase`. [[inspiration](https://github.com/zzswang/express-humps/blob/master/src/index.js)]
 - [ ] consider using `camelCase` naming throughout the stack
+- [ ] logging
 
 ## resources
 
