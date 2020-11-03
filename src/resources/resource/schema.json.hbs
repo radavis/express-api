@@ -4,7 +4,7 @@
   "required": [],
   "properties": {
     {{#each properties}}
-    "{{propertyName}}": { "type": "{{propertyType}}" },
+    "{{propertyName}}": { "type": "{{propertyType}}" }{{#unless @last}},{{/unless}}
     {{/each}}
   }
 }

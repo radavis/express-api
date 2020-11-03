@@ -1,13 +1,4 @@
-/**
- * @function timestamp
- * @returns {string} timestamp string in 'YYYYMMDDHHMMSS' format
- */
-const timestamp = () =>
-  new Date()
-    .toISOString()
-    .replace(/[TZ-]/g, "")
-    .replace(/:/g, "")
-    .split(".")[0];
+const { timestamp } = require("./util");
 
 // map input column type to partial name
 // https://handlebarsjs.com/guide/partials.html#dynamic-partials

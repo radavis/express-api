@@ -1,0 +1,29 @@
+const db = require("@root/db");
+
+const new{{properCase singularResourceName}} = ({
+  {{#each properties}}
+  {{propertyName}} = "MyValue"{{#unless @last}},{{/unless}}
+  {{/each}}
+} = {}) => ({
+{{#each properties}}
+  {{propertyName}}{{#unless @last}},{{/unless}}
+{{/each}}
+});
+
+const create{{properCase singularResourceName}} = (props) => {
+  const {{singularResourceName}} = new{{properCase singularResourceName}}(props);
+  return db("{{resourceName}}")
+    .returning([
+      "id",
+      {{#each properties}}
+      "{{propertyName}}"{{#unless @last}},{{/unless}}
+      {{/each}}
+    ])
+    .insert({{singularResourceName}})
+    .first();
+};
+
+module.exports = {
+  new{{properCase singularResourceName}},
+  create{{properCase singularResourceName}},
+};

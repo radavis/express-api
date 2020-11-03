@@ -17,7 +17,7 @@ const createBook = (props) => {
   return db("books")
     .returning(["id", "title", "author", "year", "paperback"])
     .insert(book)
-    .then((rows) => rows[0]);
+    .first();
 };
 
 module.exports = {
