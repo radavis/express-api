@@ -127,7 +127,7 @@ add `plopfile.js`
   - [x] generate migration
   - [x] generate routes
   - [x] generate json-schema and validation function
-  - [ ] generate factory
+  - [x] generate factory
   - [ ] generate open-api stuff
 - [ ] serve open-api specification
 - [ ] authentication via GitHub/Google/Some OAuth Service
