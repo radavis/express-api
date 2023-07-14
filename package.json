@@ -24,14 +24,15 @@
   "author": "Richard Davis <rdavis.bacs@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "ajv": "^8.12.0",
     "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "helmet": "^4.1.1",
     "knex": "^0.21.5",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
-    "pg": "^8.3.3"
+    "pg": "^8.11.1"
   },
   "devDependencies": {
     "husky": "^4.3.0",

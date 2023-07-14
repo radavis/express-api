@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const defaults = {
   client: "pg",
   log: {
@@ -19,12 +21,11 @@ module.exports = {
   development: {
     ...defaults,
     connection:
-      process.env.DATABASE_URL ||
-      "postgres://localhost:5432/express-api_development",
+      "postgres://postgres:password@localhost:5433/express-api_development",
   },
   test: {
     ...defaults,
-    connection: "postgres://localhost:5432/express-api_test",
+    connection: "postgres://postgres:password@localhost:5434/express-api_test",
   },
   production: {
     ...defaults,

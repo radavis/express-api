@@ -16,6 +16,9 @@ router.post("/books", async (request, response) => {
 
 router.put("/books/:id", async (request, response) => {
   const { id } = request.params;
+  if (isNaN(parseInt(id))) {
+    return response.status(404).end();
+  }
   await validate(request.body)
     .catch((err) => response.status(404).send(err))
     .then((bookParams) => db("books").where({ id }).update(bookParams))
